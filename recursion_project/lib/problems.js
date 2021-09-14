@@ -40,11 +40,14 @@ function lucasNumber(n) {
 // sumArray([5])            // => 5
 // sumArray([5, 2])         // => 7
 // sumArray([4, 10, -1, 2]) // => 15
-function sumArray(array) {
 
+function sumArray(array){
+    if(!array.length){
+        return 0
+    }
+    const [head,...body] = array
+    return head + sumArray(body)
 }
-
-
 // Write a function, reverseString(str), that takes in a string.
 // The function should return the string with it's characters in reverse order.
 //
@@ -57,7 +60,11 @@ function sumArray(array) {
 // reverseString("internet")    // => "tenretni"
 // reverseString("friends")     // => "sdneirf"
 function reverseString(str) {
+    if(str.length <= 1){
+        return str
+    }
 
+    return str[str.length - 1] + reverseString(str.substring(0,str.length-1))
 }
 
 
